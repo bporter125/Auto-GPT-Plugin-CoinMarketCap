@@ -57,12 +57,60 @@ class AutoGPTCoinMarketCapPlugin(AutoGPTPluginTemplate):
             PromptGenerator: The prompt generator.
         """
         prompt.add_command(
-            "Get current crypto listings",
+            "Get current top crypto currency listings",
             "get_coin_market_cap_listings",
             {
                 "count": "<count>"
             },
             coin_market_cap_api.get_current_listings
+        ),
+        prompt.add_command(
+            "Get current top crypto currency prices",
+            "get_coin_market_cap_prices",
+            {
+                "count": "<count>"
+            },
+            coin_market_cap_api.get_current_top_coin_prices
+        ),
+        prompt.add_command(
+            "Get current top crypto currency by 24 hour volume",
+            "get_coin_market_cap_by_volume",
+            {
+                "count": "<count>"
+            },
+            coin_market_cap_api.get_current_top_coin_by_volume
+        ),
+        prompt.add_command(
+            "Get the price of a crypto currency by its symbol",
+            "get_coin_market_cap_symbol_price",
+            {
+                "symbol": "<symbol>"
+            },
+            coin_market_cap_api.get_current_price_by_symbol
+        ),
+        prompt.add_command(
+            "Get the price of a crypto currency by its slug",
+            "get_coin_market_cap_slug_price",
+            {
+                "slug": "<slug>"
+            },
+            coin_market_cap_api.get_current_price_by_slug
+        ),
+        prompt.add_command(
+            "Get the information of a crypto currency by its symbol",
+            "get_coin_market_cap_symbol_quote",
+            {
+                "symbol": "<symbol>"
+            },
+            coin_market_cap_api.get_current_quote_by_symbol
+        ),
+        prompt.add_command(
+            "Get the information of a crypto currency by its slug",
+            "get_coin_market_cap_slug_quote",
+            {
+                "slug": "<slug>"
+            },
+            coin_market_cap_api.get_current_quote_by_slug
         ),
         return prompt
 
